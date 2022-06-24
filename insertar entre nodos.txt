@@ -1,0 +1,139 @@
+http://codigolibre.weebly.com/blog/listas-simples-en-java
+
+
+
+
+private void insertaEN(int posicion, int dato){
+        if(posicion>=0 && posicion<=pos){
+            Nodo nuevo = new Nodo();
+            nuevo.setDato(dato); // ojo
+            if(posicion == 0){
+                nuevo.setIzq(Primero);
+                Primero = nuevo;
+            }
+            else{
+                if(posicion == pos){
+                    Nodo aux = Primero;
+                    while(aux.getPrimero() != null){
+                        aux = aux.getPrimero();
+                    }
+                    aux.setPrimero(nuevo);              
+                }
+                else{
+                    Nodo aux = Primero;
+                    for (int i = 0; i < (posicion-1); i++) {
+                        aux = aux.getPrimero();
+                    }
+                    Nodo Primero = aux.getPrimero();
+                    aux.setPrimero(nuevo);
+                    nuevo.setPrimero(Primero);
+                }
+            }
+            pos++;
+        }
+    }
+
+
+
+
+
+
+
+
+ private void insertaFinal(){
+      int v;
+       int dato;
+       do{
+          try{
+             v=0;
+              dato = Leer();
+              if (esVacia())
+                    insertaPrimero(dato);
+               else{
+                  Nodo nuevo = new Nodo (dato);
+                   Final.setDer (nuevo);
+                   nuevo.setIzq (Final);
+                   Final = nuevo;
+                   pos++;
+                }
+              JOptionPane.showMessageDialog (null," EL DATO SE HA INSERTADO CORRECTAMENTE AL FINAL DE LA LISTA. ");
+               }catch(Exception e){
+                  JOptionPane.showMessageDialog(null," CARACTER NO VALIDO, INGRESE SOLO NUMEROS ENTEROS ", " ERROR ", JOptionPane.WARNING_MESSAGE);
+                     v=1;
+                    t.nextLine();
+                    pos--;
+               }
+          }while (v !=0);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*private void insertaEN(){
+    int dato;
+    dato=Leer();
+    if(esVacia())
+    insertaPrimero(dato);
+    else{
+        Nodo nuevo= new Nodo(dato);
+        Primero.setDer(nuevo);
+        nuevo.setIzq(Final);
+        Final.setIzq(Primero);
+
+        
+nuevo=Final;
+    pos++;
+
+    }
+    mensaje("Elemento insertado entre nodos");
+}*/
+
+  /*private void insertaEN(){ // Profe, intente hacer el de insertar entre nodos, pero no pude.
+       int dato;
+      int n;
+      dato=Leer();
+        Nodo nodo = new Nodo(dato);
+        if (Final == null){
+            nuevo.setIzq = nuevo;
+        }else{
+           nuevo.setIzq = Final.setDer;
+           int contador = 0;
+           while (contador < n && Final.setDer != null) {
+            nuevo = Final;
+            contador++;
+           }
+           Primero.setIzq (Final);
+           Final.setDer(Primero);
+         }
+       JOptionPane.showMessageDialog(null," ELEMENTO INSERTADO CORRECTAMENTE ENTRE LOS NODOS");
+   }*/
+
+   /*private void insertaEN(){ 
+       int dato;
+       dato=Leer();
+         if(esVacia())
+           insertaPrimero(dato);
+         else{
+              Nodo nuevo= new Nodo(dato);
+              Primero.setDer(nuevo);
+              nuevo.setIzq(Final);
+              Final.setIzq(Primero); 
+          nuevo=Final;
+        pos++;
+       }
+     JOptionPane.showMessageDialog(null," ELEMENTO INSERTADO CORRECTAMENTE ENTRE LOS NODOS");
+   }*/
